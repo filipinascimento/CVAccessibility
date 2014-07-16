@@ -1,0 +1,35 @@
+Usage: CVAccessibility [options] -i|<inputnetwork> [<outputfile>]
+Options:
+  -l  --level h           Obtain accessibility for h steps.
+                          (defaults to h=3)
+  -r  --random-walk       Use random-walk dynamics. If not specified,
+                          use self-avoiding dynamics.
+  -b  --ball-measurement  Take the measurement over the ball instead
+                          considering levels from 0 to h.
+  -p  --path-diversity    Use path diversity instead of probabilities.
+  -n  --normalize         Normalize accessibility with the number of
+                          accessed nodes.
+  -o  --output-probs      Also output the access probabilities for each
+                          pair of nodes.
+  -a  --output-accessed   Also output the number of accessed nodes
+                          alongside acessibility.
+  -s  --live-stream       Stream the output as results are obtained.
+                          (note that the results may be out of order)
+  -j  --parallel-jobs N   Maximum number of parallel jobs for multicore
+                          calculation. (defaults to N=8)
+  -h  --help              Display this usage information.
+  -V  --version           Show version number and quit.
+  -v  --verbose           Make the calculation more talkative.
+  -q  --quiet             Don not show calculation progress.
+  -S  --show-status       Always show calculation progress.
+Input:
+  <inputnetwork>          Path to the network file in .xnet format.
+  -i  --input-stdin       Uses stdin as input instead of a file.
+  <outputfile>            Path to output the results. (If not defined, 
+                          the software will output to stdout)
+
+CVAccessibility v0.7b
+Calculates accessibility of nodes for a network file.
+
+For more info visit:
+<http://cyvision.ifsc.usp.br/Cyvision/Accessibility/>

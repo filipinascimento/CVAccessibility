@@ -1,0 +1,76 @@
+.\"Modified from man(1) of FreeBSD, the NetBSD mdoc.template, and mdoc.samples.
+.\"See Also:
+.\"man mdoc.samples for a complete listing of options
+.\"man mdoc for the short list of editing options
+.\"/usr/share/misc/mdoc.template
+.Dd 11/7/12               \" DATE 
+.Dt CVAccessibility 1      \" Program name and manual section number 
+.Os CVNetwork
+.Sh NAME                 \" Section Header - required - don't modify 
+.Nm CVAccessibility
+.\" The following lines are read in generating the apropos(man -k) database. Use only key
+.\" words here as the database is built based on the words here and in the .ND line. 
+.\" Use .Nm macro to designate other names for the documented program.
+.Nd Calculate accessibility of complex networks.
+.Sh SYNOPSIS             \" Section Header - required - don't modify
+.Nm
+.Op Fl rhVvqS
+.Op Fl l Ar concentriclevel
+.Op Fl j Ar jobscount
+.Fl i | Ar networkfile 
+.Op Ar outputfile
+.Sh DESCRIPTION          \" Section Header - required - don't modify
+.Nm
+is a tool to calculate the
+.Ar Accessibility
+of complex networks.
+.Pp
+Options:
+.Bl -tag -width -indent
+.It Fl l  Fl Fl level Ar concentriclevel
+Obtain accessibility for concentric level h. (defaults to concentriclevel=3)
+.It Fl r  Fl Fl random-walk
+Use random-walk dynamics. If not specified, use self-avoiding dynamics.
+.It Fl l  Fl Fl live-stream
+Stream the output as results are obtained. (note that the results may be out of order)
+.It Fl j  Fl Fl parallel-jobs Ar jobscount
+Maximum number of parallel jobs for multicore calculation. (defaults to jobscount=8)
+.It Fl h  Fl Fl help
+Display usage information.
+.It Fl V  Fl Fl version
+Show version number and quit.
+.It Fl v  Fl Fl verbose
+Make the calculation more talkative.
+.It Fl q  Fl Fl quiet
+Don not show calculation progress.
+.It Fl S  Fl Fl show-status
+Always show calculation progress.
+.El
+.Pp
+Input:
+.Bl -tag -width -ident
+.It Ar inputnetwork
+Path to the network file in .xnet format.
+.It Fl i  Fl Fl input-stdin
+Uses stdin as input instead of a file.
+.It Ar outputfile
+Path to output the results. (If not defined, the software will output to stdout)
+.El
+.Pp
+.Sh File Format
+Only xnet formatted network files are currently supported as input for
+.Nm .
+The xnet format is a UTF8 encoded plain text which conforms with the following structure:
+.Pp
+.nf
+	#vertices verticesCount nonweighted|weighted
+	#edges nonweighted|weighted undirected|directed
+	fromVertex1 toVertex1 [weight]
+	fromVertex2 toVertex2 [weight]
+	fromVertex3 toVertex3 [weight]
+	
+.fi
+.El
+.Sh More Info
+See http://cyvision.ifsc.usp.br/Cyvision/Accessibility/
+.El
