@@ -83,7 +83,7 @@ Example of a square graph:
 "Upper Left"
 "Upper Right"
 "Lower Right"
-#edges nonweighted
+#edges nonweighted undirected
 0 1
 0 3
 1 2
