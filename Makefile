@@ -1,7 +1,6 @@
 TARGET = CVAccessibility
 LIBS = -lm
 DEFINITIONS = 
-CC = cc
 CFLAGS = -g -Wall -std=c11 -m64 -Wall -O3 -fvisibility=hidden -funroll-loops -fstrict-aliasing
 
 SRCDIR   = Source
