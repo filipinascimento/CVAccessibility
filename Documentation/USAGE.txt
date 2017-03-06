@@ -28,7 +28,7 @@ Input:
   <outputfile>            Path to output the results. (If not defined, 
                           the software will output to stdout)
 
-CVAccessibility v0.7b
+CVAccessibility v0.8b
 Calculates accessibility of nodes for a network file.
 
 For more info visit:

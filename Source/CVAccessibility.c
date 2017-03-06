@@ -9,7 +9,7 @@
 #include "CVNetwork.h"
 #include "CVNetworkAccessibility.h"
 #include <getopt.h>
-#define CVAccessibilityApplicationVersion "0.7b"
+#define CVAccessibilityApplicationVersion "0.8b"
 
 
 static void CVAccessibilityApplicationPrintProgress(CVOperationControl* thisControl) {
@@ -359,7 +359,7 @@ int CVAccessibilityApplication(int argc, char** argv){
 				
 				fprintf(outputFile,")");
 			}
-			printf("\n");
+			fprintf(outputFile,"\n");
 		}
 	}
 	if(verbose){

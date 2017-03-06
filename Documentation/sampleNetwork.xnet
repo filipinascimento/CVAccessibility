@@ -1,0 +1,11 @@
+#vertices 5 nonweighted
+“A"
+“B"
+"C"
+"D"
+"E"
+#edges nonweighted undirected
+0 1
+0 2
+0 3
+1 4

@@ -259,7 +259,23 @@ typedef float CVFloat;
 
 
 
-#if __WIN32__
+
+#if __APPLE__
+CV_INLINE void CVRandomSeedDev(){
+	srandomdev();
+	uint64_t okok = random();
+	seed48((unsigned short*)&okok);
+}
+static int g_seed = 100;
+CV_INLINE int CV_FastrandInt() {
+	g_seed = (214013*g_seed+2531011);
+	return (g_seed>>16)&0x7FFF;
+}
+CV_INLINE void CVRandomSeed(CVUInteger seed){srandom((unsigned int)seed);}
+CV_INLINE CVUInteger CVRandom() {return random();}
+CV_INLINE CVInteger CVRandomInRange(CVInteger start,CVInteger length){return (CVInteger)start+(CVInteger)(random()%(length));}
+CV_INLINE CVFloat CVRandomFloat(){return (float)drand48();}
+#else
 CV_INLINE void CVRandomSeedDev(){time_t now; time(&now); srand((unsigned int)now);}
 CV_INLINE void CVRandomSeed(CVUInteger seed){srand((unsigned int)seed);}
 CV_INLINE CVUInteger CVRandom() {return rand();}
@@ -273,16 +289,6 @@ CV_INLINE CVInteger CVRandomInRange(CVInteger start,CVInteger length){
 	return start + (rnd % n);
 }
 CV_INLINE CVFloat CVRandomFloat(){return (float)rand()/(float)(RAND_MAX);}
-#else
-CV_INLINE void CVRandomSeedDev(){
-	srandomdev();
-	uint64_t okok = random();
-	seed48((unsigned short*)&okok);
-}
-CV_INLINE void CVRandomSeed(CVUInteger seed){srandom((unsigned int)seed);}
-CV_INLINE CVUInteger CVRandom() {return random();}
-CV_INLINE CVInteger CVRandomInRange(CVInteger start,CVInteger length){return (CVInteger)start+(CVInteger)(random()%(length));}
-CV_INLINE CVFloat CVRandomFloat(){return (float)drand48();}
 #endif
 
 typedef char CVChar;

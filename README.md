@@ -1,7 +1,19 @@
 #CVAccessibility
-CVAccessibility v0.7.1b
+CVAccessibility v0.8b
 
 Software for calculating the accessibility measurement of nodes in complex networks. Check http://arxiv.org/abs/1101.5379v3 and http://arxiv.org/abs/0802.3665 .
+
+##Compiling
+Just do:
+
+
+```
+cd Source
+make
+```
+
+##Precompiled binaries
+Check releases for precompiled binaries for Windows (64-bits) and macOS.
 
 ##Usage
 

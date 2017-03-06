@@ -338,9 +338,15 @@ CVNetwork* CVNewNetworkFromXNETFile(FILE* networkFile){
 				if(CVStringScan(&lineSegment, "weighted")){
 					theNetwork->edgeWeighted = CVTrue;
 				}
+				if(CVStringScan(&lineSegment, "nonweighted")){
+					theNetwork->edgeWeighted = CVFalse;
+				}
 				CVStringScanCharacters(&lineSegment, ' ');
 				if(CVStringScan(&lineSegment, "directed")){
 					theNetwork->directed = CVTrue;
+				}
+				if(CVStringScan(&lineSegment, "nonweighted")){
+					theNetwork->edgeWeighted = CVFalse;
 				}
 				CVStringScanCharacters(&lineSegment, ' ');
 				if(CVStringScan(&lineSegment, "weighted")){
